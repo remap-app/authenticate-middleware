@@ -1,7 +1,6 @@
 {
   "name": "authenticate-middleware",
   "version": "0.0.0",
-  "private": true,
   "description": "ReMap Authenticate Middleware",
   "main": "index.js",
   "scripts": {
