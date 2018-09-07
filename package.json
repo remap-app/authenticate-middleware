@@ -1,0 +1,31 @@
+{
+  "name": "authenticate-middleware",
+  "version": "0.0.0",
+  "private": true,
+  "description": "ReMap Authenticate Middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remap-app/authenticate-middleware.git"
+  },
+  "author": "Shingo Sato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/remap-app/authenticate-middleware/issues"
+  },
+  "homepage": "https://github.com/remap-app/authenticate-middleware#readme",
+  "peerDependencies": {
+    "micro": "^9.3.3"
+  },
+  "dependencies": {
+    "micro-errors": "^2.0.0"
+  },
+  "devDependencies": {
+    "ava": "^1.0.0-beta.8",
+    "eslint": "^5.5.0",
+    "eslint-plugin-node": "^7.0.1"
+  }
+}
