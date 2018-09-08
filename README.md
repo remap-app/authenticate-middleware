@@ -13,8 +13,8 @@ const auhtenticate = require('authenticate-middleware')
 const authenticationService = require('./services/authentication')
 
 module.exports = compose(
-  authenticate({ authentication: authenticationServive }),
-  handleErrors()
+  handleErrors(),
+  authenticate({ authentication: authenticationServive })
 )(
   async (req, res) => {
     // req.auth
