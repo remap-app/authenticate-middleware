@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/remap-app/authenticate-middleware#readme",
   "peerDependencies": {
-    "micro": "^9.3.3"
+    "micro": "^9.0.0"
   },
   "dependencies": {
     "micro-errors": "^2.0.0"
@@ -29,6 +29,10 @@
   "devDependencies": {
     "ava": "^1.0.0-beta.8",
     "eslint": "^5.5.0",
-    "eslint-plugin-node": "^7.0.1"
+    "eslint-plugin-node": "^7.0.1",
+    "micro": "^9.3.3",
+    "micro-compose": "^0.0.3",
+    "node-fetch": "^2.2.0",
+    "test-listen": "^1.1.0"
   }
 }
