@@ -1,3 +1,4 @@
+// TODO:
 import test from 'ava'
 import micro from 'micro'
 import compose from 'micro-compose'
@@ -6,7 +7,7 @@ import listen from 'test-listen'
 import fetch from 'node-fetch'
 import middleware from '.'
 
-const createAuthenticationMock = returnValue => idToken => new Promise((resolve, reject) => {
+const createAuthenticationMock = returnValue => (/* idToken */) => new Promise((resolve, reject) => {
   if (returnValue instanceof Error) {
     reject(returnValue)
   } else {
@@ -25,7 +26,7 @@ test('returns auth with valid idToken', async t => {
         auth_time: 1533455916,
         email: 'shinsugar@gmail.com',
         email_verified: true,
-      })
+      }),
     })
   )(async req => {
     return req.auth
