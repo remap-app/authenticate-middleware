@@ -1,6 +1,6 @@
 {
   "name": "@remap/authenticate-middleware",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ReMap Authenticate Middleware",
   "main": "index.js",
   "files": [

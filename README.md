@@ -22,4 +22,16 @@ module.exports = compose(
     // req.auth
   }
 )
+
+// ./services/authentication example
+
+module.exports = async idToken => {
+  const res = await fetch(process.env.AUTHENTICATION_ENDPOINT, {
+    method: 'POST',
+    body: JSON.stringify({ id_token: idToken }),
+    mode: 'cors',
+  })
+
+  return await res.json()
+}
 ```
