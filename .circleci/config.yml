@@ -42,14 +42,13 @@ jobs:
   publish:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/authenticate-middleware
+      - checkout
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" >> ~/authenticate-middleware/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" >> ~/.npmrc
       - run:
           name: Publish package to npm and tagging
-          command: ~/authenticate-middleware/.circleci/publish-and-tagging.sh
+          command: /bin/bash .circleci/publish-and-tagging.sh
 
 workflows:
   version: 2

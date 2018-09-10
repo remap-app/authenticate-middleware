@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "ReMap Authenticate Middleware",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "lint": "eslint .",
     "test": "ava"
