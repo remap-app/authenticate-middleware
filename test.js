@@ -4,7 +4,7 @@ import micro from 'micro'
 import compose from 'micro-compose'
 import { handleErrors } from 'micro-errors'
 import listen from 'test-listen'
-import fetch from 'node-fetch'
+import fetch from 'cross-fetch'
 import middleware from '.'
 
 const createAuthenticationMock = returnValue => (/* idToken */) => new Promise((resolve, reject) => {
