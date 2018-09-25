@@ -11,27 +11,22 @@ yarn add @remap/authenticate-middleware
 ```js
 const compose = require('micro-compose')
 const { handleErrors } = require('micro-errors')
-const auhtenticate = require('@remap/authenticate-middleware')
-const authenticationService = require('./services/authentication')
+const authenticateMiddleware = require('@remap/authenticate-middleware')
 
 module.exports = compose(
   handleErrors(),
-  authenticate({ authentication: authenticationServive })
+  authenticateMiddleware(),
 )(
   async (req, res) => {
     // req.auth
   }
 )
+```
 
-// ./services/authentication example
+### Optional custom authenticator
 
-module.exports = async idToken => {
-  const res = await fetch(process.env.AUTHENTICATION_ENDPOINT, {
-    method: 'POST',
-    body: JSON.stringify({ id_token: idToken }),
-    mode: 'cors',
-  })
-
-  return await res.json()
-}
+```js
+const middlwware = auhtenticateMiddleware({
+  authenticate: async () => await doSomething(),
+})
 ```

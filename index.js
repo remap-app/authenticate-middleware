@@ -1,12 +1,13 @@
 const { STATUS_CODES } = require('http')
 const { createError } = require('micro-errors')
+const { Authentication } = require('@remap/services')
 
 const STATUS_MESSAGE_400 = STATUS_CODES[400]
 const STATUS_MESSAGE_401 = STATUS_CODES[401]
 
 const parseAuthToken = auth => auth.trim().split('Bearer ')[1]
 
-module.exports = ({ authenticate }) => {
+module.exports = ({ authenticate = Authentication.authenticate } = {}) => {
   if (typeof authenticate !== 'function') {
     throw new TypeError('`authenticate` service client must be function')
   }
@@ -24,9 +25,7 @@ module.exports = ({ authenticate }) => {
       throw createError(400, STATUS_MESSAGE_400, null, { detail: 'Invalid token format' })
     }
 
-    const auth = await authenticate(idToken).catch(error => {
-      throw createError(401, STATUS_MESSAGE_401, error, { detail: 'Invalid token' })
-    })
+    const auth = await authenticate(idToken).catch(error => { throw error })
 
     if (!auth) {
       res.setHeader('WWW-Authenticate', 'Bearer error="invalid_token"')
