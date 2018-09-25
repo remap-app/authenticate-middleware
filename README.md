@@ -26,7 +26,7 @@ module.exports = compose(
 ### Optional custom authenticator
 
 ```js
-const middlwware = auhtenticateMiddleware({
+const middlwware = authenticateMiddleware({
   authenticate: async () => await doSomething(),
 })
 ```
