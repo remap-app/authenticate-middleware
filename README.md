@@ -19,6 +19,14 @@ module.exports = compose(
 )(
   async (req, res) => {
     // req.auth
+    // {
+    //   name: string;
+    //   picture: string;
+    //   auth_time: number;
+    //   email: string;
+    //   email_verified: boolean;
+    //   uid: string;
+    // }
   }
 )
 ```
@@ -26,7 +34,7 @@ module.exports = compose(
 ### Optional custom authenticator
 
 ```js
-const middlwware = authenticateMiddleware({
+const middleware = authenticateMiddleware({
   authenticate: async () => await doSomething(),
 })
 ```

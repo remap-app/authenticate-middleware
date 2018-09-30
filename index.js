@@ -1,15 +1,16 @@
 const { STATUS_CODES } = require('http')
 const { createError } = require('micro-errors')
-const { Authentication } = require('@remap/services')
+const ReMap = require('@remap/services')
 
 const STATUS_MESSAGE_400 = STATUS_CODES[400]
 const STATUS_MESSAGE_401 = STATUS_CODES[401]
 
 const parseAuthToken = auth => auth.trim().split('Bearer ')[1]
 
-module.exports = ({ authenticate = Authentication.authenticate } = {}) => {
+module.exports = ({ authenticate } = {}) => {
   if (typeof authenticate !== 'function') {
-    throw new TypeError('`authenticate` service client must be function')
+    const remap = new ReMap()
+    authenticate = remap.authenticate.bind(remap)
   }
 
   return fn => async (req, res, ...rest) => {
